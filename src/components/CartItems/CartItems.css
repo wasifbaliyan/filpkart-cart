@@ -1,0 +1,34 @@
+.cart_item_container {
+  display: flex;
+}
+
+.cart_button_container {
+  display: flex;
+}
+
+.cart_button {
+  border: none;
+  cursor: pointer;
+
+  text-transform: uppercase;
+  background-color: #fff;
+  font-weight: 500;
+  margin: 0 0.3rem;
+}
+
+.cart_button:hover {
+  color: #3b82f6;
+}
+.inc_button {
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  margin: 0 0.2rem;
+  cursor: pointer;
+}
+
+.cart_item_count {
+  border: 1px solid #eee;
+  padding: 10px 10px;
+  margin: 0 0.2rem;
+}

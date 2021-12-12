@@ -8,10 +8,17 @@
   flex-shrink: 0;
   background-color: #fff;
   margin: 0.5rem;
+  padding: 1rem;
 }
 
 .cart_main {
   flex-grow: 1;
-  background-color: #fff;
+
   margin: 0.5rem;
+}
+
+.cart_main_item {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }

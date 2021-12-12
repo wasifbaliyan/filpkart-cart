@@ -14,6 +14,7 @@ import {
   addToSaved,
   decrementItemCount,
   incrementItemCount,
+  moveToCart,
   removeFromCart,
   removeFromSaved,
 } from "./utils";
@@ -32,7 +33,7 @@ export const cartReducer = (state, action) => {
     case REMOVE_FROM_CART:
       return removeFromCart(state, action.payload);
     case MOVE_TO_CART:
-      return initialState;
+      return moveToCart(state, action.payload);
     case INCREMENT_ITEM_COUNT:
       return incrementItemCount(state, action.payload);
     case DECREMENT_ITEM_COUNT:

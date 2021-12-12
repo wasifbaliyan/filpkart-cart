@@ -1,6 +1,7 @@
 import { CartContext } from "../../context/cartContext";
 import React, { useContext } from "react";
 import { REMOVE_FROM_SAVED, MOVE_TO_CART } from "../../context/constants";
+import "./SavedItems.css";
 
 export default function SavedItems() {
   const { state, dispatch } = useContext(CartContext);
@@ -10,22 +11,35 @@ export default function SavedItems() {
       <div>{state.saved.length === 0 && "No items in saved later"}</div>
       <div>
         {state.saved.map((item) => (
-          <div>
-            <h5>{item.name}</h5>
-            <img width={"150px"} src={item.imageUrl} alt={item.name} />
+          <div className="saved_item_container" key={item.id}>
             <div>
-              <button
-                onClick={() => dispatch({ type: MOVE_TO_CART, payload: item })}
-              >
-                Move to cart
-              </button>
-              <button
-                onClick={() =>
-                  dispatch({ type: REMOVE_FROM_SAVED, payload: item })
-                }
-              >
-                Remove
-              </button>
+              <img width={"100px"} src={item.imageUrl} alt={item.name} />
+            </div>
+            <div
+              style={{
+                paddingLeft: "1rem",
+              }}
+            >
+              <p>{item.name}</p>
+
+              <div>
+                <button
+                  className="saved_button"
+                  onClick={() =>
+                    dispatch({ type: MOVE_TO_CART, payload: item })
+                  }
+                >
+                  Move to cart
+                </button>
+                <button
+                  className="saved_button"
+                  onClick={() =>
+                    dispatch({ type: REMOVE_FROM_SAVED, payload: item })
+                  }
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           </div>
         ))}

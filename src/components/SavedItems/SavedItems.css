@@ -1,0 +1,16 @@
+.saved_button {
+  border: none;
+  cursor: pointer;
+
+  text-transform: uppercase;
+  background-color: #fff;
+  font-weight: 500;
+  margin: 0 0.3rem;
+}
+
+.saved_button:hover {
+  color: #3b82f6;
+}
+.saved_item_container {
+  display: flex;
+}

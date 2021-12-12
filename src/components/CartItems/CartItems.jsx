@@ -4,9 +4,9 @@ import {
   REMOVE_FROM_CART,
   INCREMENT_ITEM_COUNT,
   DECREMENT_ITEM_COUNT,
-  MOVE_TO_SAVED,
   ADD_TO_SAVED,
 } from "../../context/constants";
+import "./CartItems.css";
 
 export default function CartItems() {
   const { state } = useContext(CartContext);
@@ -17,39 +17,53 @@ export default function CartItems() {
       <div>{state.cart.length === 0 && "No products in the cart"}</div>
       <div>
         {state.cart.map((item) => (
-          <div key={item.id}>
-            <h5>{item.name}</h5>
-            <img width={"150px"} src={item.imageUrl} alt={item.name} />
+          <div className="cart_item_container" key={item.id}>
             <div>
-              <div>
+              <img width={"100px"} src={item.imageUrl} alt={item.name} />
+            </div>
+            <div
+              style={{
+                paddingLeft: "1rem",
+              }}
+            >
+              <p>{item.name}</p>
+              <div className="cart_button_container">
+                <div>
+                  <button
+                    className="inc_button"
+                    onClick={() =>
+                      dispatch({ type: DECREMENT_ITEM_COUNT, payload: item })
+                    }
+                  >
+                    -
+                  </button>
+                  <span className="cart_item_count">{item.count}</span>
+                  <button
+                    className="inc_button"
+                    onClick={() =>
+                      dispatch({ type: INCREMENT_ITEM_COUNT, payload: item })
+                    }
+                  >
+                    +
+                  </button>
+                </div>
                 <button
+                  className="cart_button"
                   onClick={() =>
-                    dispatch({ type: DECREMENT_ITEM_COUNT, payload: item })
+                    dispatch({ type: ADD_TO_SAVED, payload: item })
                   }
                 >
-                  -
+                  Save for later
                 </button>
-                <span>{item.count}</span>
                 <button
+                  className="cart_button"
                   onClick={() =>
-                    dispatch({ type: INCREMENT_ITEM_COUNT, payload: item })
+                    dispatch({ type: REMOVE_FROM_CART, payload: item })
                   }
                 >
-                  +
+                  Remove
                 </button>
               </div>
-              <button
-                onClick={() => dispatch({ type: ADD_TO_SAVED, payload: item })}
-              >
-                Save for later
-              </button>
-              <button
-                onClick={() =>
-                  dispatch({ type: REMOVE_FROM_CART, payload: item })
-                }
-              >
-                Remove
-              </button>
             </div>
           </div>
         ))}
