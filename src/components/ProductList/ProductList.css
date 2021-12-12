@@ -1,0 +1,12 @@
+.product-list_heading {
+  padding: 0 1rem;
+  text-align: center;
+  color: #414141;
+}
+.product-list_container {
+  padding: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}

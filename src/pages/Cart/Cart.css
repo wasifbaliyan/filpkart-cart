@@ -1,0 +1,17 @@
+.cart {
+  display: flex;
+}
+
+.cart_sidebar {
+  flex-basis: 320px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background-color: #fff;
+  margin: 0.5rem;
+}
+
+.cart_main {
+  flex-grow: 1;
+  background-color: #fff;
+  margin: 0.5rem;
+}
